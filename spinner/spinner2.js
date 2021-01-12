@@ -16,7 +16,18 @@ setTimeout(() => {
 setTimeout(() => {
   // Need to escape the backslash since it's a special character.
   process.stdout.write('\r\\   ');
-}, 700);
-setTimeout(() => {
-  process.stdout.write('\r|');
 }, 900);
+
+
+const sentence = "|/-\\|";
+let i = 0;
+let sentenceArray = sentence.split("");
+console.log(sentenceArray);
+setTimeout(function run() {
+  if (i < sentenceArray.length) {
+    // console.log(sentenceArray[i]);
+    process.stdout.write(sentenceArray[i]);
+    i++;
+    setTimeout(run, 150);
+  }
+}, 150);
